@@ -19,6 +19,8 @@ class Calculator{
             return firstNumer * secondNumber
         case "/":
             return firstNumer / secondNumber
+        case "%":
+            return firstNumer % secondNumber
         default:
             print("옳바른 값을 입력하세요.")
         }
@@ -38,8 +40,8 @@ class Calculator{
     // 연산자 입력 받기
     func getoper(prompt: String) -> String {
         print(prompt,terminator: "")
-        guard let operation = readLine(), ["+", "-", "*", "/"].contains(operation) else {
-            print("유효한 연산자를 입력해주세요 (+, -, *, /).")
+        guard let operation = readLine(), ["+", "-", "*", "/", "%"].contains(operation) else {
+            print("유효한 연산자를 입력해주세요 (+, -, *, /, %).")
             return getoper(prompt: prompt)
         }
         return operation
