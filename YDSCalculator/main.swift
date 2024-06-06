@@ -9,6 +9,6 @@ let operation = car.getoper(prompt: "연산자를 입력하세요 (+, -, *, /, %
 let secondNumber = car.inputA(prompt: "두 번째 숫자를 입력하세요:")
 
 // 계산 및 결과 출력
-let result = car.calculate(oper: operation, firstNumer: firstNumber, secondNumber: secondNumber)
+let result = car.calculate(oper: operation, firstNumber: firstNumber, secondNumber: secondNumber)
 
 print(result)

@@ -9,18 +9,18 @@ import Foundation
 
 
 class Calculator{
-    func calculate(oper: String, firstNumer: Int, secondNumber: Int ) -> Int {
+    func calculate(oper: String, firstNumber: Int, secondNumber: Int ) -> Int {
         switch oper {
         case "+":
-            return firstNumer + secondNumber
+            return firstNumber + secondNumber
         case "-":
-            return firstNumer - secondNumber
+            return firstNumber - secondNumber
         case "*":
-            return firstNumer * secondNumber
+            return firstNumber * secondNumber
         case "/":
-            return firstNumer / secondNumber
+            return firstNumber / secondNumber
         case "%":
-            return firstNumer % secondNumber
+            return firstNumber % secondNumber
         default:
             print("옳바른 값을 입력하세요.")
         }
