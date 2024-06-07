@@ -8,25 +8,19 @@
 import Foundation
 
 class Calculator{
-    let Add = AddOperation()
-    let subtract = SubtractOperation()
-    let multiply = MultiplyOperation()
-    let divide = DivideOperation()
-    let remain = RemainderOperation()
-    
-    // 힌트: return -> 프로퍼티 생성
+
     func calculate(oper: String, firstNumber: Int, secondNumber: Int ) -> Int {
         switch oper {
         case "+":
-            return Add.oper(firstNumber: firstNumber, secondNumber: secondNumber)
+            return AddOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
         case "-":
-            return subtract.oper(firstNumber: firstNumber, secondNumber: secondNumber)
+            return SubtractOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
         case "*":
-            return multiply.oper(firstNumber: firstNumber, secondNumber: secondNumber)
+            return MultiplyOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
         case "/":
-            return divide.oper(firstNumber: firstNumber, secondNumber: secondNumber)
+            return DivideOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
         case "%":
-            return remain.oper(firstNumber: firstNumber, secondNumber: secondNumber)
+            return RemainderOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
         default:
             print("옳바른 값을 입력하세요.")
         }
