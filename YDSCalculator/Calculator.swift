@@ -7,66 +7,71 @@
 
 import Foundation
 
-
 class Calculator{
-    let add = AddOperation()
+    let Add = AddOperation()
     let subtract = SubtractOperation()
     let multiply = MultiplyOperation()
     let divide = DivideOperation()
-    let remainder = RemainderOperation()
+    let remain = RemainderOperation()
     
-    
-    
+    // 힌트: return -> 프로퍼티 생성
     func calculate(oper: String, firstNumber: Int, secondNumber: Int ) -> Int {
         switch oper {
         case "+":
-            return add.addoper(firstNumber: firstNumber, secondNumber: secondNumber)
+            return Add.oper(firstNumber: firstNumber, secondNumber: secondNumber)
         case "-":
-            return subtract.subtractoper(firstNumber: firstNumber, secondNumber: secondNumber)
+            return subtract.oper(firstNumber: firstNumber, secondNumber: secondNumber)
         case "*":
-            return multiply.multiplyoper(firstNumber: firstNumber, secondNumber: secondNumber)
+            return multiply.oper(firstNumber: firstNumber, secondNumber: secondNumber)
         case "/":
-            return divide.divideoper(firstNumber: firstNumber, secondNumber: secondNumber)
+            return divide.oper(firstNumber: firstNumber, secondNumber: secondNumber)
         case "%":
-            return remainder.remainoper(firstNumber: firstNumber, secondNumber: secondNumber)
+            return remain.oper(firstNumber: firstNumber, secondNumber: secondNumber)
         default:
             print("옳바른 값을 입력하세요.")
         }
         return 0
     }
-        
 }
 
-class AddOperation{
-    func addoper(firstNumber: Int, secondNumber: Int) -> Int{
+
+class AbstractOperation{
+    func oper(firstNumber: Int, secondNumber: Int) -> Int{
+        return 0
+    }
+}
+
+// 덧셈 연산
+class AddOperation: AbstractOperation{
+    override func oper(firstNumber: Int, secondNumber: Int) -> Int{
         return firstNumber + secondNumber
     }
 }
 
-class SubtractOperation{
-    func subtractoper(firstNumber: Int, secondNumber: Int) -> Int{
-        
+// 뺄셈 연산
+class SubtractOperation: AbstractOperation{
+    override  func oper(firstNumber: Int, secondNumber: Int) -> Int{
         return firstNumber - secondNumber
     }
 }
 
-class MultiplyOperation{
-    func multiplyoper(firstNumber: Int, secondNumber: Int) -> Int{
-        
+// 곱셈 연산
+class MultiplyOperation: AbstractOperation{
+    override  func oper(firstNumber: Int, secondNumber: Int) -> Int{
         return firstNumber * secondNumber
     }
 }
 
-class DivideOperation{
-    func divideoper(firstNumber: Int, secondNumber: Int) -> Int{
-        
+// 나누기 연산
+class DivideOperation: AbstractOperation{
+    override  func oper(firstNumber: Int, secondNumber: Int) -> Int{
         return firstNumber / secondNumber
     }
 }
 
-class RemainderOperation{
-    func remainoper(firstNumber: Int, secondNumber: Int) -> Int{
-        
+// 나머지 연산
+class RemainderOperation:AbstractOperation{
+    override  func oper(firstNumber: Int, secondNumber: Int) -> Int{
         return firstNumber % secondNumber
     }
 }
