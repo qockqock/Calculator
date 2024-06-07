@@ -13,29 +13,33 @@
 
 import Foundation
 
-class Calculator{
-    let oper: String
-        
-    init(oper: String) {
-        self.oper = oper
-    }
+enum Operator: String {
+    case add = "+"
+    case subtract = "-"
+    case multiply = "*"
+    case divide = "/"
+    case remainder = "%"
     
-    func calculate(firstNumber: Double, secondNumber: Double ) -> Double {
-        switch oper {
-        case "+":
-            return AddOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
-        case "-":
-            return SubtractOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
-        case "*":
-            return MultiplyOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
-        case "/":
-            return DivideOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
-        case "%":
-            return RemainderOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
-        default:
-            print("옳바른 값을 입력하세요.")
+    func getOperation() -> AbstractOperation {
+        switch self {
+        case .add:
+            return AddOperation()
+        case .subtract:
+            return SubtractOperation()
+        case .multiply:
+            return MultiplyOperation()
+        case .divide:
+            return DivideOperation()
+        case .remainder:
+            return RemainderOperation()
         }
-        return 0
+    }
+}
+
+class Calculator {
+    func calculate(oper: Operator, firstNumber: Double, secondNumber: Double) -> Double {
+        let operation = oper.getOperation()
+        return operation.oper(firstNumber: firstNumber, secondNumber: secondNumber)
     }
 }
 

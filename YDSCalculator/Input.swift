@@ -28,3 +28,29 @@ class Input{
         return operation
     }
 }
+
+/*
+ enum Operation{
+     case add
+     case subtrack
+     case multiply
+     case divide
+     case remainder
+     
+     func perform(fisrtNumber: Double, secondNumber: Double) -> Double{
+         switch self {
+         case .add:
+             return firstNumber + secondNumber
+         case .subtrack:
+             return firstNumber - secondNumber
+         case .multiply:
+             return firstNumber * secondNumber
+         case .divide:
+             return firstNumber / secondNumber
+         case .remainder:
+             return firstNumber.truncatingRemainder(dividingBy: secondNumber)
+         }
+     }
+ }
+
+ */
