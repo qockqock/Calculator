@@ -14,8 +14,13 @@
 import Foundation
 
 class Calculator{
-
-    func calculate(oper: String, firstNumber: Double, secondNumber: Double ) -> Double {
+    let oper: String
+        
+    init(oper: String) {
+        self.oper = oper
+    }
+    
+    func calculate(firstNumber: Double, secondNumber: Double ) -> Double {
         switch oper {
         case "+":
             return AddOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
