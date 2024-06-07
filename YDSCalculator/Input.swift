@@ -9,9 +9,9 @@ import Foundation
 
 class Input{
     // 숫자 입력 받기
-    func inputA(prompt: String) -> Int {
+    func inputA(prompt: String) -> Double {
         print(prompt,terminator:"") // terminateor 사용 한 이유? -> 값을 입력 후 대기시간 줄이기 용도로 사용.
-        guard let input = readLine(), let number = Int(input) else {
+        guard let input = readLine(), let number = Double(input) else {
             print("유효한 숫자를 입력해주세요.")
             return inputA(prompt: prompt)
         }

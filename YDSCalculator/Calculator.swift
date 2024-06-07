@@ -5,11 +5,17 @@
 //  Created by 머성이 on 6/4/24.
 //
 
+
+/* 고려해야할 것
+ 1. 단일책임원칙 - 완
+ 2. 의존성역전원칙 - 완
+ */
+
 import Foundation
 
 class Calculator{
 
-    func calculate(oper: String, firstNumber: Int, secondNumber: Int ) -> Int {
+    func calculate(oper: String, firstNumber: Double, secondNumber: Double ) -> Double {
         switch oper {
         case "+":
             return AddOperation().oper(firstNumber: firstNumber, secondNumber: secondNumber)
@@ -28,44 +34,43 @@ class Calculator{
     }
 }
 
-
 class AbstractOperation{
-    func oper(firstNumber: Int, secondNumber: Int) -> Int{
+    func oper(firstNumber: Double, secondNumber: Double) -> Double{
         return 0
     }
 }
 
 // 덧셈 연산
 class AddOperation: AbstractOperation{
-    override func oper(firstNumber: Int, secondNumber: Int) -> Int{
+    override func oper(firstNumber: Double, secondNumber: Double) -> Double{
         return firstNumber + secondNumber
     }
 }
 
 // 뺄셈 연산
 class SubtractOperation: AbstractOperation{
-    override  func oper(firstNumber: Int, secondNumber: Int) -> Int{
+    override  func oper(firstNumber: Double, secondNumber: Double) -> Double{
         return firstNumber - secondNumber
     }
 }
 
 // 곱셈 연산
 class MultiplyOperation: AbstractOperation{
-    override  func oper(firstNumber: Int, secondNumber: Int) -> Int{
+    override  func oper(firstNumber: Double, secondNumber: Double) -> Double{
         return firstNumber * secondNumber
     }
 }
 
 // 나누기 연산
 class DivideOperation: AbstractOperation{
-    override  func oper(firstNumber: Int, secondNumber: Int) -> Int{
+    override  func oper(firstNumber: Double, secondNumber: Double) -> Double{
         return firstNumber / secondNumber
     }
 }
 
 // 나머지 연산
 class RemainderOperation:AbstractOperation{
-    override  func oper(firstNumber: Int, secondNumber: Int) -> Int{
-        return firstNumber % secondNumber
+    override  func oper(firstNumber: Double, secondNumber: Double) -> Double{
+        return firstNumber.truncatingRemainder(dividingBy: secondNumber)
     }
 }
